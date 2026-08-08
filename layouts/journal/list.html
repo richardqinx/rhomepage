@@ -1,0 +1,19 @@
+{{ define "main" }}
+  <article lang="{{ default "en" .Params.lang }}">
+    <header class="document-header">
+      <h1>{{ .Title }}</h1>
+      {{ partial "document-view.html" . }}
+    </header>
+    {{ .Content }}
+    {{- $pages := where site.RegularPages "Section" "journal" -}}
+    {{- $pages = $pages.ByDate.Reverse -}}
+    <ol class="document-list journal-list">
+      {{- range $pages }}
+        <li>
+          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+          <a href="{{ .RelPermalink }}" lang="{{ .Params.lang }}">{{ .LinkTitle }}</a>
+        </li>
+      {{- end }}
+    </ol>
+  </article>
+{{ end }}

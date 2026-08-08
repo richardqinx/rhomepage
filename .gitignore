@@ -1,0 +1,21 @@
+/public/
+/resources/
+/.hugo_build.lock
+
+# Local specifications; intentionally excluded from version control.
+/docs/DESIGN.md
+/docs/IMPLEMENTATION.md
+/docs/ACCEPTANCE.md
+/docs/VISUAL_REVIEW.md
+
+# Local acceptance fixtures. Remove a line when replacing it with real content.
+/content/journal/_index.md
+/content/journal/2026/07/a-small-place-on-the-open-web/
+/content/journal/2026/08/why-i-still-like-plain-text/
+/content/notes/_index.md
+/content/notes/rss/
+/content/notes/linux/
+/content/projects/_index.md
+/content/links/_index.md
+/static/about.txt
+/static/now.txt

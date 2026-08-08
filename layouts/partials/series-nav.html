@@ -1,0 +1,35 @@
+{{- $page := .page -}}
+{{- $mode := .mode -}}
+{{- $pages := where $page.CurrentSection.RegularPages.ByWeight "Params.series" $page.Params.series -}}
+{{- $currentIndex := -1 -}}
+{{- range $index, $candidate := $pages -}}
+  {{- if eq $candidate.RelPermalink $page.RelPermalink -}}
+    {{- $currentIndex = $index -}}
+  {{- end -}}
+{{- end -}}
+{{- if ge $currentIndex 0 -}}
+  {{- $position := add $currentIndex 1 -}}
+  {{- if eq $mode "position" }}
+    <p class="series-position"><a href="{{ $page.CurrentSection.RelPermalink }}">{{ $page.CurrentSection.LinkTitle }}</a> <span aria-hidden="true">·</span> {{ printf "%02d/%d" $position (len $pages) }}</p>
+  {{- else if eq $mode "navigation" }}
+    <nav class="document-navigation series-navigation" aria-label="{{ $page.CurrentSection.LinkTitle }} chapters">
+      <ul>
+        <li class="series-previous"{{ if eq $currentIndex 0 }} aria-hidden="true"{{ end }}>
+          {{- if gt $currentIndex 0 }}
+            {{- $previous := index $pages (sub $currentIndex 1) }}
+            <span class="navigation-label">previous</span>
+            <a rel="prev" href="{{ $previous.RelPermalink }}">← {{ printf "%02d. %s" (sub $position 1) $previous.LinkTitle }}</a>
+          {{- end }}
+        </li>
+        <li class="series-index-link"><a href="{{ $page.CurrentSection.RelPermalink }}">↑ {{ $page.CurrentSection.LinkTitle }}</a></li>
+        <li class="series-next"{{ if eq $position (len $pages) }} aria-hidden="true"{{ end }}>
+          {{- if lt $position (len $pages) }}
+            {{- $next := index $pages $position }}
+            <span class="navigation-label">next</span>
+            <a rel="next" href="{{ $next.RelPermalink }}">{{ printf "%02d. %s" (add $position 1) $next.LinkTitle }} →</a>
+          {{- end }}
+        </li>
+      </ul>
+    </nav>
+  {{- end -}}
+{{- end -}}

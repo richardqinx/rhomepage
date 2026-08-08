@@ -1,0 +1,8 @@
+{{ define "main" }}
+  <article class="home-page" lang="en">
+    <h1>{{ site.Title }}</h1>
+    <p class="home-intro">I'm an undergraduate at the School of Information, Renmin University of China, and a free software advocate. My current interests are MLSys, compilers, and operating systems. You can reach me by <a href="mailto:{{ site.Params.email }}">email</a>.</p>
+    {{ partial "primary-nav.html" . }}
+    {{ partial "recent.html" . }}
+  </article>
+{{ end }}

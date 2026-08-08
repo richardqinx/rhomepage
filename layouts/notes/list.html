@@ -1,0 +1,41 @@
+{{ define "main" }}
+  <article lang="{{ default "en" .Params.lang }}">
+    <header class="document-header">
+      <h1>{{ .Title }}</h1>
+      {{ partial "document-view.html" . }}
+    </header>
+    {{ .Content }}
+    {{- if eq .File.Path "notes/_index.md" }}
+      {{- with .RegularPages.ByTitle }}
+        <section aria-labelledby="standalone-title">
+          <h2 id="standalone-title">STANDALONE NOTES</h2>
+          <ul class="document-list">
+            {{- range . }}
+              <li><time datetime="{{ time.Format "2006-01-02" .Params.updated }}">{{ time.Format "2006-01-02" .Params.updated }}</time> <a href="{{ .RelPermalink }}" lang="{{ .Params.lang }}">{{ .LinkTitle }}</a></li>
+            {{- end }}
+          </ul>
+        </section>
+      {{- end }}
+      {{- with .Sections.ByTitle }}
+        <section aria-labelledby="series-title">
+          <h2 id="series-title">SERIES</h2>
+          <ul class="document-list">
+            {{- range . }}
+              <li><a href="{{ .RelPermalink }}" lang="{{ .Params.lang }}">{{ .LinkTitle }}</a>{{ with .Params.description }} — {{ . }}{{ end }}</li>
+            {{- end }}
+          </ul>
+        </section>
+      {{- end }}
+    {{- else }}
+      <ol class="document-list series-chapter-list">
+        {{- range $index, $page := .RegularPages.ByWeight }}
+          <li>
+            <span class="chapter-number">{{ printf "%02d" (add $index 1) }}</span>
+            <a href="{{ $page.RelPermalink }}" lang="{{ $page.Params.lang }}">{{ $page.LinkTitle }}</a>
+            <span class="list-updated">updated {{ time.Format "2006-01-02" $page.Params.updated }}</span>
+          </li>
+        {{- end }}
+      </ol>
+    {{- end }}
+  </article>
+{{ end }}
