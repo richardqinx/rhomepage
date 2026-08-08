@@ -31,9 +31,6 @@ enableRobotsTXT = false
   baseName = "rss"
 
 [markup]
-  [markup.goldmark]
-    [markup.goldmark.renderer]
-      unsafe = true
   [markup.highlight]
     codeFences = false
     guessSyntax = false
