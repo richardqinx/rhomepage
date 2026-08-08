@@ -1,0 +1,9 @@
+{{ define "main" }}
+  <article lang="{{ default "en" .Params.lang }}">
+    <header class="document-header">
+      <h1>{{ .Title }}</h1>
+      {{ partial "document-view.html" . }}
+    </header>
+    {{ .Content }}
+  </article>
+{{ end }}

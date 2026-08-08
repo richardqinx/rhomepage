@@ -1,0 +1,43 @@
+baseURL = "http://localhost:1314/"
+title = "RICHARD QIN'S HOME PAGE"
+languageCode = "en"
+defaultContentLanguage = "en"
+timeZone = "Asia/Shanghai"
+uglyURLs = true
+disableHugoGeneratorInject = true
+disableKinds = ["taxonomy", "term", "sitemap"]
+enableRobotsTXT = false
+
+[params]
+  owner = "Richard Qin"
+  identity = "richard@web:~/"
+  description = "Richard Qin's journal, technical notes, projects, and links."
+  email = "richard.qin.001@gmail.com"
+  sourceURL = "https://codeberg.org/Richard-Qin/rhomepage"
+  gitBase = "https://codeberg.org/Richard-Qin/rhomepage/src/branch/main"
+  contentLicense = "CC BY-SA 4.0"
+
+[permalinks]
+  journal = "/:year/:month/:slug"
+  notes = "/:sections/:slug"
+
+[outputs]
+  home = ["HTML", "RSS"]
+  section = ["HTML"]
+  page = ["HTML"]
+
+[outputFormats.RSS]
+  mediaType = "application/rss+xml"
+  baseName = "rss"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    codeFences = false
+    guessSyntax = false
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 3
+    ordered = false

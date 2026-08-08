@@ -1,0 +1,8 @@
+<nav class="site-nav" aria-label="Primary">
+  <a href="{{ "/journal/" | relURL }}"{{ if eq .Section "journal" }} aria-current="page"{{ end }}>journal/</a>
+  <a href="{{ "/notes/" | relURL }}"{{ if eq .Section "notes" }} aria-current="page"{{ end }}>notes/</a>
+  <a href="{{ "/projects/" | relURL }}"{{ if eq .Section "projects" }} aria-current="page"{{ end }}>projects/</a>
+  <a href="{{ "/links/" | relURL }}"{{ if eq .Section "links" }} aria-current="page"{{ end }}>links/</a>
+  <a href="{{ "/about.txt" | relURL }}">about.txt</a>
+  <a href="{{ "/now.txt" | relURL }}">now.txt</a>
+</nav>

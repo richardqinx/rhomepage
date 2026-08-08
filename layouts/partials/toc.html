@@ -1,0 +1,7 @@
+{{- $headings := findRE `<h[23][ >]` .Content -}}
+{{- if gt (len $headings) 4 }}
+  <section class="table-of-contents" aria-labelledby="contents-title">
+    <h2 id="contents-title">CONTENTS</h2>
+    {{ .TableOfContents }}
+  </section>
+{{- end -}}

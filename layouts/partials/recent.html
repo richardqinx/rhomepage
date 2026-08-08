@@ -1,0 +1,23 @@
+{{- $items := slice -}}
+{{- range where site.RegularPages "Section" "journal" -}}
+  {{- $items = $items | append (dict "page" . "kind" "journal" "sortDate" (.Date.Format "2006-01-02")) -}}
+{{- end -}}
+{{- range where site.RegularPages "Section" "notes" -}}
+  {{- $page := . -}}
+  {{- with $page.Params.recent -}}
+    {{- $items = $items | append (dict "page" $page "kind" "note" "sortDate" (time.Format "2006-01-02" .)) -}}
+  {{- end -}}
+{{- end -}}
+{{- $items = sort $items "sortDate" "desc" -}}
+<section class="recent" aria-labelledby="recent-title">
+  <h2 id="recent-title">RECENT</h2>
+  <ol class="document-list">
+    {{- range $items }}
+      <li>
+        <time datetime="{{ .sortDate }}">{{ .sortDate }}</time>
+        <span class="document-kind">[{{ .kind }}]</span>
+        <a href="{{ .page.RelPermalink }}" lang="{{ .page.Params.lang }}">{{ .page.LinkTitle }}</a>
+      </li>
+    {{- end }}
+  </ol>
+</section>

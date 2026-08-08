@@ -1,0 +1,37 @@
+{{ define "main" }}
+  <article lang="{{ .Params.lang }}">
+    <header class="document-header">
+      <p class="document-path">{{ .RelPermalink }}</p>
+      <h1>{{ .Title }}</h1>
+      <dl class="document-meta">
+        <div><dt>published</dt><dd><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time></dd></div>
+        {{- with .Params.updated }}
+          <div><dt>updated</dt><dd><time datetime="{{ time.Format "2006-01-02" . }}">{{ time.Format "2006-01-02" . }}</time></dd></div>
+        {{- end }}
+        <div><dt>license</dt><dd>{{ .Params.license }}</dd></div>
+      </dl>
+      {{ partial "document-view.html" . }}
+    </header>
+    {{ .Content }}
+    {{- $pages := where site.RegularPages "Section" "journal" -}}
+    {{- $pages = $pages.ByDate -}}
+    {{- $currentIndex := -1 -}}
+    {{- range $index, $candidate := $pages -}}
+      {{- if eq $candidate.RelPermalink $.RelPermalink }}{{ $currentIndex = $index }}{{ end -}}
+    {{- end -}}
+    {{- if ge $currentIndex 0 }}
+      <nav class="document-navigation journal-navigation" aria-label="Journal chronology">
+        <ul>
+          {{- if gt $currentIndex 0 }}
+            {{- $previous := index $pages (sub $currentIndex 1) }}
+            <li class="previous-link"><span class="navigation-label">previous</span><a rel="prev" href="{{ $previous.RelPermalink }}">← {{ $previous.LinkTitle }}</a></li>
+          {{- end }}
+          {{- if lt (add $currentIndex 1) (len $pages) }}
+            {{- $next := index $pages (add $currentIndex 1) }}
+            <li class="next-link"><span class="navigation-label">next</span><a rel="next" href="{{ $next.RelPermalink }}">{{ $next.LinkTitle }} →</a></li>
+          {{- end }}
+        </ul>
+      </nav>
+    {{- end }}
+  </article>
+{{ end }}

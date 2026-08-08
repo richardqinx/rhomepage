@@ -1,0 +1,19 @@
+{{- if .File -}}
+  {{- $rawURL := "" -}}
+  {{- if .IsPage -}}
+    {{- $htmlBase := strings.TrimSuffix ".html" .RelPermalink -}}
+    {{- $rawURL = printf "%s/index.md" $htmlBase -}}
+  {{- else if .IsSection -}}
+    {{- $rawURL = printf "%s_index.md" .RelPermalink -}}
+  {{- end -}}
+  {{- $gitBase := strings.TrimSuffix "/" site.Params.gitBase -}}
+  {{- $gitURL := printf "%s/content/%s" $gitBase .File.Path -}}
+  <nav class="document-view" aria-label="Document formats">
+    <span>view:</span>
+    <a href="{{ .RelPermalink }}" aria-current="page">html</a>
+    <span aria-hidden="true">·</span>
+    <a href="{{ $rawURL }}">raw .md</a>
+    <span aria-hidden="true">·</span>
+    <a href="{{ $gitURL }}">git</a>
+  </nav>
+{{- end -}}

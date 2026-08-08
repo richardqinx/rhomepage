@@ -1,0 +1,33 @@
+#!/bin/sh
+
+set -eu
+
+content_dir=${1:-content}
+public_dir=${2:-public}
+
+[ -d "$content_dir" ] || exit 0
+mkdir -p "$public_dir"
+
+find "$content_dir" -type f -print | while IFS= read -r source
+do
+    relative=${source#"$content_dir"/}
+
+    case "$relative" in
+        journal/_index.md)
+            target=$public_dir/journal/_index.md
+            ;;
+        journal/*/*/*/*)
+            target=$public_dir/${relative#journal/}
+            ;;
+        journal/*)
+            # The V1 model has no public year or month section documents.
+            continue
+            ;;
+        *)
+            target=$public_dir/$relative
+            ;;
+    esac
+
+    mkdir -p "$(dirname "$target")"
+    cp "$source" "$target"
+done
