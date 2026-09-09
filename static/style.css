@@ -249,7 +249,8 @@ a:focus-visible {
   margin-bottom: 0.7rem;
 }
 
-.recent .document-list li {
+.recent .document-list li,
+.updates-list .document-list li {
   display: grid;
   grid-template-columns: max-content max-content minmax(0, 1fr);
   gap: 0.25rem 0.8rem;
@@ -495,6 +496,7 @@ img {
   }
 
   .recent .document-list li,
+  .updates-list .document-list li,
   .journal-list li {
     display: block;
   }

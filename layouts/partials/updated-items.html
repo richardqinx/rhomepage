@@ -1,0 +1,16 @@
+{{- $items := slice -}}
+{{- range $section := slice "journal" "notes" -}}
+  {{- $kind := cond (eq $section "notes") "note" "journal" -}}
+  {{- range where site.RegularPages "Section" $section -}}
+    {{- if not .Params.created -}}
+      {{- errorf "Missing required created date in %s" .File.Path -}}
+    {{- end -}}
+    {{- if not .Params.updated -}}
+      {{- errorf "Missing required updated date in %s" .File.Path -}}
+    {{- end -}}
+    {{- $sortDate := time.Format "2006-01-02" .Params.updated -}}
+    {{- $sortKey := printf "%s|%s" $sortDate .RelPermalink -}}
+    {{- $items = $items | append (dict "page" . "kind" $kind "sortDate" $sortDate "sortKey" $sortKey) -}}
+  {{- end -}}
+{{- end -}}
+{{- return (sort $items "sortKey" "desc") -}}
