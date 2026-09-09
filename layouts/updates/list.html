@@ -1,0 +1,20 @@
+{{ define "main" }}
+  <article lang="{{ default "en" .Params.lang }}">
+    <header class="document-header">
+      <h1>{{ .Title }}</h1>
+    </header>
+    {{ .Content }}
+    {{- $items := partial "updated-items.html" . -}}
+    <section class="updates-list" aria-label="All updates">
+      <ol class="document-list">
+        {{- range $items }}
+          <li>
+            <time datetime="{{ .sortDate }}">{{ .sortDate }}</time>
+            <span class="document-kind">[{{ .kind }}]</span>
+            <a href="{{ .page.RelPermalink }}" lang="{{ .page.Params.lang }}">{{ .page.LinkTitle }}</a>
+          </li>
+        {{- end }}
+      </ol>
+    </section>
+  </article>
+{{ end }}

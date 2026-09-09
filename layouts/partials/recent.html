@@ -1,18 +1,8 @@
-{{- $items := slice -}}
-{{- range where site.RegularPages "Section" "journal" -}}
-  {{- $items = $items | append (dict "page" . "kind" "journal" "sortDate" (.Date.Format "2006-01-02")) -}}
-{{- end -}}
-{{- range where site.RegularPages "Section" "notes" -}}
-  {{- $page := . -}}
-  {{- with $page.Params.recent -}}
-    {{- $items = $items | append (dict "page" $page "kind" "note" "sortDate" (time.Format "2006-01-02" .)) -}}
-  {{- end -}}
-{{- end -}}
-{{- $items = sort $items "sortDate" "desc" -}}
+{{- $items := partial "updated-items.html" . -}}
 <section class="recent" aria-labelledby="recent-title">
   <h2 id="recent-title">RECENT</h2>
   <ol class="document-list">
-    {{- range $items }}
+    {{- range first site.Params.recentLimit $items }}
       <li>
         <time datetime="{{ .sortDate }}">{{ .sortDate }}</time>
         <span class="document-kind">[{{ .kind }}]</span>
@@ -20,4 +10,5 @@
       </li>
     {{- end }}
   </ol>
+  <p class="recent-more"><a href="{{ "updates/" | relURL }}">Read more</a></p>
 </section>
