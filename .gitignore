@@ -9,7 +9,5 @@
 /docs/VISUAL_REVIEW.md
 
 # Local acceptance fixtures. Remove a line when replacing it with real content.
-/content/projects/_index.md
-/content/links/_index.md
 /static/about.txt
 /static/now.txt
