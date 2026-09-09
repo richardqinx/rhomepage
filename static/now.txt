@@ -1,0 +1,8 @@
+Richard Qin -- now
+==================
+
+Last updated: 2026-08-08
+
+- Building the first local version of this personal site.
+- Organizing Linux notes as long-lived, ordered documents.
+- Keeping the publishing stack small and inspectable.
