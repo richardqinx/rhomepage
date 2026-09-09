@@ -4,7 +4,7 @@ A small, document-first personal site built with Hugo, semantic HTML, and one CS
 
 ## Requirements
 
-- Hugo 0.123.7 or newer
+- Hugo 0.165.0 or newer
 - POSIX `sh`
 - Make
 

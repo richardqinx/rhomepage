@@ -1,6 +1,6 @@
 baseURL = "http://localhost:1314/"
 title = "RICHARD QIN'S HOME PAGE"
-languageCode = "en"
+locale = "en"
 defaultContentLanguage = "en"
 timeZone = "Asia/Shanghai"
 uglyURLs = true
@@ -31,6 +31,13 @@ enableRobotsTXT = false
   baseName = "rss"
 
 [markup]
+  [markup.goldmark]
+    [markup.goldmark.extensions]
+      [markup.goldmark.extensions.passthrough]
+        enable = true
+        [markup.goldmark.extensions.passthrough.delimiters]
+          block = [['$$', '$$']]
+          inline = [['$', '$']]
   [markup.highlight]
     codeFences = false
     guessSyntax = false
