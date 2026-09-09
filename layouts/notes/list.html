@@ -1,11 +1,12 @@
 {{ define "main" }}
+  {{- $isNotesRoot := .Parent.IsHome -}}
   <article lang="{{ default "en" .Params.lang }}">
     <header class="document-header">
       <h1>{{ .Title }}</h1>
       {{ partial "document-view.html" . }}
     </header>
     {{ .Content }}
-    {{- if eq .File.Path "notes/_index.md" }}
+    {{- if $isNotesRoot }}
       {{- with .RegularPages.ByTitle }}
         <section aria-labelledby="standalone-title">
           <h2 id="standalone-title">STANDALONE NOTES</h2>
@@ -16,7 +17,7 @@
           </ul>
         </section>
       {{- end }}
-      {{- with .Sections.ByTitle }}
+      {{- with .Sections.ByWeight }}
         <section aria-labelledby="series-title">
           <h2 id="series-title">SERIES</h2>
           <ul class="document-list">
@@ -27,15 +28,33 @@
         </section>
       {{- end }}
     {{- else }}
-      <ol class="document-list series-chapter-list">
-        {{- range $index, $page := .RegularPages.ByWeight }}
-          <li>
-            <span class="chapter-number">{{ printf "%02d" (add $index 1) }}</span>
-            <a href="{{ $page.RelPermalink }}" lang="{{ $page.Params.lang }}">{{ $page.LinkTitle }}</a>
-            <span class="list-updated">updated {{ time.Format "2006-01-02" $page.Params.updated }}</span>
-          </li>
-        {{- end }}
-      </ol>
+      {{- with .RegularPages.ByWeight }}
+        <section aria-labelledby="series-articles-title">
+          <h2 id="series-articles-title">ARTICLES</h2>
+          <ol class="document-list series-chapter-list">
+            {{- range $index, $page := . }}
+              <li>
+                <span class="chapter-number">{{ printf "%02d" (add $index 1) }}</span>
+                <a href="{{ $page.RelPermalink }}" lang="{{ $page.Params.lang }}">{{ $page.LinkTitle }}</a>
+                <span class="list-updated">updated {{ time.Format "2006-01-02" $page.Params.updated }}</span>
+              </li>
+            {{- end }}
+          </ol>
+        </section>
+      {{- end }}
+      {{- with .Sections.ByWeight }}
+        <section aria-labelledby="subseries-title">
+          <h2 id="subseries-title">SUBSERIES</h2>
+          <ol class="document-list series-chapter-list">
+            {{- range $index, $series := . }}
+              <li>
+                <span class="chapter-number">{{ printf "%02d" (add $index 1) }}</span>
+                <a href="{{ $series.RelPermalink }}" lang="{{ $series.Params.lang }}">{{ $series.LinkTitle }}/</a>{{ with $series.Params.description }} — {{ . }}{{ end }}
+              </li>
+            {{- end }}
+          </ol>
+        </section>
+      {{- end }}
     {{- end }}
   </article>
 {{ end }}
