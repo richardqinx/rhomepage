@@ -5,10 +5,8 @@
       <h1>{{ .Title }}</h1>
       {{- with .Params.series }}{{ partial "series-nav.html" (dict "page" $ "mode" "position") }}{{ end }}
       <dl class="document-meta">
-        {{- with .Params.created }}
-          <div><dt>created</dt><dd><time datetime="{{ time.Format "2006-01-02" . }}">{{ time.Format "2006-01-02" . }}</time></dd></div>
-        {{- end }}
-        <div><dt>updated</dt><dd><time datetime="{{ time.Format "2006-01-02" .Params.updated }}">{{ time.Format "2006-01-02" .Params.updated }}</time></dd></div>
+        <div><dt>created</dt><dd><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time></dd></div>
+        <div><dt>updated</dt><dd><time datetime="{{ .Lastmod.Format "2006-01-02" }}">{{ .Lastmod.Format "2006-01-02" }}</time></dd></div>
         <div><dt>license</dt><dd>{{ .Params.license }}</dd></div>
       </dl>
       {{ partial "document-view.html" . }}

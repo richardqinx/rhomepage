@@ -17,6 +17,10 @@ enableRobotsTXT = false
   gitBase = "https://codeberg.org/Richard-Qin/rhomepage/src/branch/main"
   contentLicense = "CC BY-SA 4.0"
 
+[frontmatter]
+  date = ["created"]
+  lastmod = ["updated"]
+
 [permalinks]
   journal = "/:year/:month/:slug"
   notes = "/:sections/:slug"
