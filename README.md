@@ -16,7 +16,7 @@ make serve
 make clean
 ```
 
-`make build` recreates `public/`, runs Hugo, and then copies every public Markdown source and its page-bundle attachments without changing their bytes. `make serve` prepares that same output before starting Hugo at `http://localhost:1314/`; override the port with `make serve PORT=8080`. Hugo rebuilds HTML while serving; restart the command after editing Markdown when the raw `.md` snapshot also needs to change.
+`make build` recreates `public/`, runs Hugo, and then copies every public Markdown source and its page-bundle attachments without changing their bytes. The default `BASE_URL` is `http://localhost:1314/`; pass `BASE_URL=https://example.org/` to generate absolute production URLs. `make serve` prepares that same output before starting Hugo at `http://localhost:1314/`; override the port with `make serve PORT=8080`. Hugo rebuilds HTML while serving; restart the command after editing Markdown when the raw `.md` snapshot also needs to change.
 
 The source repository URL, per-file Git base URL, and public email are configured once in `hugo.toml`.
 
