@@ -14,6 +14,10 @@ license: CC-BY-SA-4.0
 
 [Richard Stallman's personal site](https://stallman.org/) collects his writing, talks, and current notes.
 
+## Friends
+
+[Yangming Xiong](https://escapist404.github.io/) is an undergraduate in Artificial Intelligence at the Gaoling School of Artificial Intelligence, Renmin University of China. His research interests include embodied world models, vision-language-action models, robot learning, and multimodal agents for long-horizon reasoning, planning, and interaction. He also works as a research intern at Tsinghua University's Institute for Interdisciplinary Information Sciences and an intern at Litchibot.
+
 ## Documentation
 
 [The Linux man-pages project](https://www.kernel.org/doc/man-pages/) documents the Linux kernel and C library interfaces. It is often the most direct source for details about system calls and file formats.
