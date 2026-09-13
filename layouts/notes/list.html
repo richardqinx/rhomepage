@@ -28,9 +28,38 @@
         </section>
       {{- end }}
     {{- else }}
-      {{- with .RegularPages.ByWeight }}
-        <section aria-labelledby="series-articles-title">
-          <h2 id="series-articles-title">ARTICLES</h2>
+      {{/*
+        A section is a container by default.  A direct page becomes an
+        ordered chapter only when it declares `series`; all other direct
+        pages remain ordinary, unnumbered articles.  Child sections are
+        listed as subseries and are rendered by this same template, so the
+        hierarchy can be nested to any depth.
+      */}}
+      {{- $articles := slice -}}
+      {{- $chapters := slice -}}
+      {{- range .RegularPages.ByTitle }}
+        {{- if not .Params.series }}
+          {{- $articles = $articles | append . -}}
+        {{- end }}
+      {{- end }}
+      {{- range .RegularPages.ByWeight }}
+        {{- if .Params.series }}
+          {{- $chapters = $chapters | append . -}}
+        {{- end }}
+      {{- end }}
+      {{- with $articles }}
+        <section aria-labelledby="articles-title">
+          <h2 id="articles-title">ARTICLES</h2>
+          <ul class="document-list">
+            {{- range . }}
+              <li><time datetime="{{ time.Format "2006-01-02" .Params.updated }}">{{ time.Format "2006-01-02" .Params.updated }}</time> <a href="{{ .RelPermalink }}" lang="{{ .Params.lang }}">{{ .LinkTitle }}</a></li>
+            {{- end }}
+          </ul>
+        </section>
+      {{- end }}
+      {{- with $chapters }}
+        <section aria-labelledby="chapters-title">
+          <h2 id="chapters-title">CHAPTERS</h2>
           <ol class="document-list series-chapter-list">
             {{- range $index, $page := . }}
               <li>
@@ -45,14 +74,11 @@
       {{- with .Sections.ByWeight }}
         <section aria-labelledby="subseries-title">
           <h2 id="subseries-title">SUBSERIES</h2>
-          <ol class="document-list series-chapter-list">
-            {{- range $index, $series := . }}
-              <li>
-                <span class="chapter-number">{{ printf "%02d" (add $index 1) }}</span>
-                <a href="{{ $series.RelPermalink }}" lang="{{ $series.Params.lang }}">{{ $series.LinkTitle }}/</a>{{ with $series.Params.description }} — {{ . }}{{ end }}
-              </li>
+          <ul class="document-list">
+            {{- range . }}
+              <li><a href="{{ .RelPermalink }}" lang="{{ .Params.lang }}">{{ .LinkTitle }}/</a>{{ with .Params.description }} — {{ . }}{{ end }}</li>
             {{- end }}
-          </ol>
+          </ul>
         </section>
       {{- end }}
     {{- end }}
