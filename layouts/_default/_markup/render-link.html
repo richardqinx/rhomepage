@@ -1,0 +1,5 @@
+{{- $destination := .Destination -}}
+{{- with .Page.Resources.GetMatch .Destination -}}
+  {{- $destination = .RelPermalink -}}
+{{- end -}}
+<a href="{{ $destination | safeURL }}"{{ with .Title }} title="{{ . }}"{{ end }}>{{ .Text | safeHTML }}</a>
