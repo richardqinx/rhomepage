@@ -5,15 +5,29 @@
       {{ partial "document-view.html" . }}
     </header>
     {{ .Content }}
-    {{- $pages := where site.RegularPages "Section" "journal" -}}
-    {{- $pages = $pages.ByDate.Reverse -}}
-    <ol class="document-list journal-list">
-      {{- range $pages }}
-        <li>
-          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
-          <a href="{{ .RelPermalink }}" lang="{{ .Params.lang }}">{{ .LinkTitle }}</a>
-        </li>
-      {{- end }}
-    </ol>
+    {{- $sections := sort .Sections "RelPermalink" "desc" -}}
+    {{- with $sections }}
+      <section aria-labelledby="journal-sections-title">
+        <h2 id="journal-sections-title">{{ if $.Parent.IsHome }}YEARS{{ else }}MONTHS{{ end }}</h2>
+        <ul class="document-list">
+          {{- range . }}
+            <li><a href="{{ .RelPermalink }}" lang="{{ .Params.lang }}">{{ .LinkTitle }}</a></li>
+          {{- end }}
+        </ul>
+      </section>
+    {{- end }}
+    {{- with .RegularPagesRecursive.ByDate.Reverse }}
+      <section aria-labelledby="journal-entries-title">
+        <h2 id="journal-entries-title">ENTRIES</h2>
+        <ol class="document-list journal-list">
+          {{- range . }}
+            <li>
+              <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+              <a href="{{ .RelPermalink }}" lang="{{ .Params.lang }}">{{ .LinkTitle }}</a>
+            </li>
+          {{- end }}
+        </ol>
+      </section>
+    {{- end }}
   </article>
 {{ end }}
