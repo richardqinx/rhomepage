@@ -1,0 +1,21 @@
+{{- $page := . -}}
+{{- $identity := strings.TrimSuffix "/" site.Params.identity -}}
+<nav class="site-identity" aria-label="Location">
+  <a class="site-root" href="{{ "/" | relURL }}">{{ $identity }}</a><span class="site-separator" aria-hidden="true">/</span>
+  {{- if not $page.IsHome -}}
+    {{- $path := strings.TrimSuffix "/" $page.RelPermalink -}}
+    {{- $path = strings.TrimSuffix ".html" $path -}}
+    {{- $prefix := "/" -}}
+    {{- $segments := split $path "/" -}}
+    {{- range $index, $segment := $segments -}}
+      {{- if ne $segment "" -}}
+        {{- $prefix = printf "%s%s/" $prefix $segment -}}
+        {{- if eq (add $index 1) (len $segments) -}}
+          <a class="site-current" href="{{ $page.RelPermalink }}" aria-current="page">{{ $segment }}</a><span class="site-separator" aria-hidden="true">/</span>
+        {{- else -}}
+          <a class="site-crumb" href="{{ $prefix | relURL }}">{{ $segment }}</a><span class="site-separator" aria-hidden="true">/</span>
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+</nav>

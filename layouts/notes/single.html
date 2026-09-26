@@ -1,7 +1,6 @@
 {{ define "main" }}
   <article lang="{{ .Params.lang }}">
     <header class="document-header">
-      <p class="document-path">{{ .RelPermalink }}</p>
       <h1>{{ .Title }}</h1>
       {{- with .Params.series }}{{ partial "series-nav.html" (dict "page" $ "mode" "position") }}{{ end }}
       <dl class="document-meta">

@@ -1,7 +1,6 @@
 {{ define "main" }}
   <article lang="{{ .Params.lang }}">
     <header class="document-header">
-      <p class="document-path">{{ .RelPermalink }}</p>
       <h1>{{ .Title }}</h1>
       <dl class="document-meta">
         <div><dt>created</dt><dd><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time></dd></div>

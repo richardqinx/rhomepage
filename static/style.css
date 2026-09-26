@@ -120,7 +120,6 @@ a:focus-visible {
 .site-identity,
 .site-nav,
 .site-footer,
-.document-path,
 .document-meta,
 .document-view,
 .document-list time,
@@ -136,11 +135,38 @@ a:focus-visible {
   display: inline-block;
   margin-bottom: 1rem;
   color: var(--text);
+  font-weight: 400;
+}
+
+.site-identity .site-root,
+.site-identity .site-root:visited {
+  color: var(--text);
   font-weight: 700;
   text-decoration: none;
 }
 
-.site-identity:visited {
+.site-identity .site-root:hover,
+.site-identity .site-root:focus-visible {
+  text-decoration: underline;
+}
+
+.site-identity .site-crumb,
+.site-identity .site-crumb:visited,
+.site-identity .site-current,
+.site-identity .site-current:visited {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.site-identity .site-crumb:hover,
+.site-identity .site-crumb:focus-visible,
+.site-identity .site-current:hover,
+.site-identity .site-current:focus-visible {
+  color: var(--text);
+  text-decoration: underline;
+}
+
+.site-identity .site-separator {
   color: var(--text);
 }
 
@@ -205,12 +231,6 @@ a:focus-visible {
 
 .document-header {
   margin-bottom: 2rem;
-}
-
-.document-path {
-  margin-bottom: 0.35rem;
-  color: var(--muted);
-  font-size: 0.875rem;
 }
 
 .document-meta {
