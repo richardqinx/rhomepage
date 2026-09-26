@@ -23,7 +23,7 @@ enableRobotsTXT = false
   lastmod = ["updated"]
 
 [permalinks]
-  journal = "/:year/:month/:slug"
+  journal = "/journal/:year/:month/:slug"
   notes = "/:sections/:slug"
 
 [outputs]
