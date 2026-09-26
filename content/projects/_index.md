@@ -12,4 +12,4 @@ A document-first personal website that publishes each article as readable HTML a
 
 - Technology: Hugo, HTML, CSS, POSIX shell
 - License: GPL-3.0-or-later
-- [source](https://codeberg.org/Richard-Qin/rhomepage)
+- [source](https://git.richardqin.org/rhomepage)

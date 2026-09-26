@@ -13,8 +13,8 @@ enableRobotsTXT = false
   identity = "richard@web:~/"
   description = "Richard Qin's journal, technical notes, projects, and links."
   email = "richard.qin.001@gmail.com"
-  sourceURL = "https://codeberg.org/Richard-Qin/rhomepage"
-  gitBase = "https://codeberg.org/Richard-Qin/rhomepage/src/branch/main"
+  sourceURL = "https://git.richardqin.org/rhomepage"
+  gitBase = "https://git.richardqin.org/rhomepage/tree"
   contentLicense = "CC BY-SA 4.0"
   recentLimit = 20
 
