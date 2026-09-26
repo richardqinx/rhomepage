@@ -20,10 +20,8 @@ make clean
 
 The source repository URL, per-file Git base URL, and public email are configured once in `hugo.toml`.
 
-The specification files and acceptance content in this working tree are deliberately ignored through exact `.gitignore` entries. Remove the relevant fixture entry when replacing it with real content that should be tracked.
-
 ## Licensing
 
-Site code and templates are licensed under `GPL-3.0-or-later`; see `LICENSE`.
+Site code and templates are licensed under `GPL-3.0-or-later`; see `COPYING`.
 
 Unless an individual document states otherwise, prose and other site content are licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).

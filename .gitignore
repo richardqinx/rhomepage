@@ -2,9 +2,3 @@
 /resources/
 /.hugo_build.lock
 sync2server.sh
-
-# Local specifications; intentionally excluded from version control.
-/docs/DESIGN.md
-/docs/IMPLEMENTATION.md
-/docs/ACCEPTANCE.md
-/docs/VISUAL_REVIEW.md
