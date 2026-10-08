@@ -16,7 +16,7 @@ enableRobotsTXT = false
   sourceURL = "https://git.richardqin.org/rhomepage"
   gitBase = "https://git.richardqin.org/rhomepage/tree"
   contentLicense = "CC BY-SA 4.0"
-  recentLimit = 20
+  recentLimit = 10
   announcementLimit = 3
 
 [frontmatter]

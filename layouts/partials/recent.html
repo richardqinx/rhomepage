@@ -1,6 +1,6 @@
 {{- $items := partial "updated-items.html" . -}}
 <section class="recent" aria-labelledby="recent-title">
-  <h2 id="recent-title">RECENT</h2>
+  <h2 id="recent-title">RECENT UPDATES</h2>
   <ol class="document-list">
     {{- range first site.Params.recentLimit $items }}
       <li>
@@ -10,5 +10,5 @@
       </li>
     {{- end }}
   </ol>
-  <p class="recent-more"><a href="{{ "updates/" | relURL }}">Read more</a></p>
+  <p class="recent-more"><a href="{{ "updates/" | relURL }}">All updates →</a></p>
 </section>
