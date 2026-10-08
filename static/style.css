@@ -218,6 +218,10 @@ a:focus-visible {
   font-size: 1rem;
 }
 
+.home-pgp {
+  font-size: 0.875rem;
+}
+
 .home-page .recent {
   margin-top: 2.5rem;
   padding-top: 0.75rem;
