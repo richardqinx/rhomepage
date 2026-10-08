@@ -2,6 +2,7 @@
 title: "NOTES"
 lang: en
 url: "/notes/"
+outputs: [HTML, RSS]
 description: "Topical documents maintained over time."
 license: CC-BY-SA-4.0
 ---

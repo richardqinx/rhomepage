@@ -1,0 +1,39 @@
+{{- $items := slice -}}
+{{- range where site.RegularPages "Section" "notes" -}}
+  {{- if not .Params.updated -}}
+    {{- errorf "Missing required updated date in %s" .File.Path -}}
+  {{- end -}}
+  {{- $sortKey := printf "%s|%s" (.Lastmod.Format "2006-01-02T15:04:05-0700") .RelPermalink -}}
+  {{- $items = $items | append (dict "page" . "sortKey" $sortKey) -}}
+{{- end -}}
+{{- $items = sort $items "sortKey" "desc" -}}
+{{ printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>{{ site.Params.owner }} — Notes Updates</title>
+    <link>{{ .Permalink }}</link>
+    <description>New and substantially revised technical notes by {{ site.Params.owner }}.</description>
+    <atom:link href="{{ (.OutputFormats.Get "RSS").Permalink }}" rel="self" type="application/rss+xml" />
+    {{- with $items }}
+    <lastBuildDate>{{ (index . 0).page.Lastmod.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}</lastBuildDate>
+    {{- end }}
+    {{- range $items }}
+      {{- $page := .page -}}
+      {{- $title := $page.Title -}}
+      {{- if $page.Params.series -}}
+        {{- $title = printf "%s — %s" $page.Parent.Title $page.Title -}}
+      {{- end -}}
+      {{- $summary := $page.Plain | strings.Truncate 200 -}}
+      {{- with $page.Params.description -}}
+        {{- $summary = . | plainify -}}
+      {{- end -}}
+    <item>
+      <title>{{ $title }}</title>
+      <link>{{ $page.Permalink }}</link>
+      <guid isPermaLink="false">{{ printf "%s#updated-%s" $page.Permalink ($page.Lastmod.Format "2006-01-02") }}</guid>
+      <pubDate>{{ $page.Lastmod.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}</pubDate>
+      <description>{{ $summary }}</description>
+    </item>
+    {{- end }}
+  </channel>
+</rss>
