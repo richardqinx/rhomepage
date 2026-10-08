@@ -1,0 +1,15 @@
+{{- $pages := where site.RegularPages "Section" "announcements" -}}
+{{- with $pages.ByDate.Reverse }}
+<section class="announcements" aria-labelledby="announcements-title">
+  <h2 id="announcements-title">ANNOUNCEMENTS</h2>
+  <ol class="document-list announcement-list">
+    {{- range first site.Params.announcementLimit . }}
+      <li>
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+        <a href="{{ .RelPermalink }}" lang="{{ .Params.lang }}">{{ .LinkTitle }}</a>
+      </li>
+    {{- end }}
+  </ol>
+  <p><a href="{{ "announcements/" | relURL }}">All announcements →</a></p>
+</section>
+{{- end }}

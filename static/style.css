@@ -222,13 +222,15 @@ a:focus-visible {
   font-size: 0.875rem;
 }
 
-.home-page .recent {
+.home-page .recent,
+.home-page .announcements {
   margin-top: 2.5rem;
   padding-top: 0.75rem;
   border-top: 1px solid var(--border);
 }
 
-.home-page .recent h2 {
+.home-page .recent h2,
+.home-page .announcements h2 {
   margin-top: 0;
   font-size: 1.125rem;
 }
@@ -281,7 +283,8 @@ a:focus-visible {
   align-items: baseline;
 }
 
-.journal-list li {
+.journal-list li,
+.announcement-list li {
   display: grid;
   grid-template-columns: max-content minmax(0, 1fr);
   gap: 0.25rem 1rem;
@@ -521,7 +524,8 @@ img {
 
   .recent .document-list li,
   .updates-list .document-list li,
-  .journal-list li {
+  .journal-list li,
+  .announcement-list li {
     display: block;
   }
 

@@ -11,12 +11,13 @@ enableRobotsTXT = false
 [params]
   owner = "Richard Qin"
   identity = "richard@web:~/"
-  description = "Richard Qin's journal, technical notes, projects, and links."
+  description = "Richard Qin's journal, technical notes, announcements, projects, and links."
   email = "richard.qin.001@gmail.com"
   sourceURL = "https://git.richardqin.org/rhomepage"
   gitBase = "https://git.richardqin.org/rhomepage/tree"
   contentLicense = "CC BY-SA 4.0"
   recentLimit = 20
+  announcementLimit = 3
 
 [frontmatter]
   date = ["created"]

@@ -20,6 +20,18 @@ make clean
 
 The source repository URL, per-file Git base URL, and public email are configured once in `hugo.toml`.
 
+## Announcements
+
+Announcements are separate from journal entries and technical notes. The home page shows the latest three notices above RECENT, with the full archive at `/announcements/`. Announcements and journal entries share `/rss.xml`; RECENT continues to show only journal entries and notes.
+
+Create a notice with:
+
+```sh
+hugo new content --kind announcement announcements/your-announcement/index.md
+```
+
+Set the title and `created` publication date, keep `updated` current when editing, and write the notice in the generated Markdown file. The home page limit is configured by `params.announcementLimit` in `hugo.toml`.
+
 ## Licensing
 
 Site code and templates are licensed under `GPL-3.0-or-later`; see `COPYING`.
