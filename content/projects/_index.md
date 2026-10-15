@@ -8,7 +8,7 @@ license: CC-BY-SA-4.0
 
 ## rhomepage
 
-A document-first personal website that publishes each article as readable HTML and unchanged Markdown.
+A document-first personal website that publishes each article as readable HTML, with links to its Markdown source in the Git repository.
 
 - Technology: Hugo, HTML, CSS, POSIX shell
 - License: GPL-3.0-or-later

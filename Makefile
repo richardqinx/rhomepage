@@ -6,7 +6,6 @@ BASE_URL ?= http://localhost:1314/
 
 build: clean
 	$(HUGO) --baseURL "$(BASE_URL)"
-	./scripts/publish-raw
 
 serve: build
 	$(HUGO) server --disableFastRender --disableLiveReload --port $(PORT) --baseURL "http://localhost:$(PORT)/"
