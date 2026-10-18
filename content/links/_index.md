@@ -10,7 +10,11 @@ license: CC-BY-SA-4.0
 
 [Free Software Foundation](https://www.fsf.org/) promotes computer user freedom and supports the worldwide free software movement.
 
+[![GNU](gnu-head-sm.png)](https://www.gnu.org/ "The GNU Project")
+
 [GNU Project](https://www.gnu.org/) develops the GNU operating system and publishes resources about free software.
+
+GNU head © 1992 Etienne Suvasa, [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/). [Image source](https://www.gnu.org/graphics/agnuhead.html).
 
 [Richard Stallman's personal site](https://stallman.org/) collects his writing, talks, and current notes.
 
