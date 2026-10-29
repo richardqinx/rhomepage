@@ -44,6 +44,8 @@ enableRobotsTXT = false
         [markup.goldmark.extensions.passthrough.delimiters]
           block = [['$$', '$$']]
           inline = [['$', '$']]
+    [markup.goldmark.renderer]
+      unsafe = true
   [markup.highlight]
     codeFences = false
     guessSyntax = false

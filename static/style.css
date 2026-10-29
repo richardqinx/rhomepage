@@ -473,6 +473,31 @@ img {
   margin-block: 1.5rem 0.5rem;
 }
 
+.gnu-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 1.5rem;
+  margin-block: 1.5rem;
+}
+
+.gnu-links a {
+  display: block;
+}
+
+.gnu-links img {
+  width: auto;
+  max-width: 100%;
+  max-height: 200px;
+  margin: 0;
+}
+
+@media (max-width: 520px) {
+  .gnu-links {
+    gap: 1rem;
+  }
+}
+
 /* Footer */
 .site-footer {
   padding-block: 1.5rem 2.5rem;
