@@ -8,32 +8,22 @@ license: CC-BY-SA-4.0
 
 Browse all my repositories on [git.richardqin.org](https://git.richardqin.org/).
 
-## rhomepage
+## [rcc-project](https://git.richardqin.org/rcc-project/)
 
-A document-first personal website that publishes each article as readable HTML, with links to its Markdown source in the Git repository.
+A collection of projects, including a C compiler, binutils, a memory allocator, an automated theorem prover, and a web browser.
 
-- Technology: Hugo, HTML, CSS, POSIX shell
-- License: GPL-3.0-or-later
-- [source](https://git.richardqin.org/rhomepage)
+## [lume](https://git.richardqin.org/lume/)
 
-## rcc
+A general-purpose operating system with Linux ABI compatibility
 
-An optimizing compiler for SysY, a C subset, targeting RISC-V 64GC. It uses a QBE-inspired SSA architecture with a substantial optimization pipeline: the mid-end includes mem2reg, GVN, GCM, LICM, SCCP, strength reduction, inlining, and DCE, while the RISC-V backend includes instruction selection, liveness analysis, spilling, register allocation, and peephole optimization.
+## [rhomepage](https://git.richardqin.org/rhomepage/)
 
-- Technology: C++, CMake, RISC-V 64GC
-- [repository](https://git.richardqin.org/rcc/)
+Personal website
 
-## RUCDSA
+## [emacs.d](https://git.richardqin.org/emacs.d/)
 
-Coursework for the Renmin University of China Data Structure and Algorithm course, including C implementations and laboratory exercises.
+Personal Emacs Configuration.
 
-- Technology: C
-- License: GPL-2.0
-- [repository](https://git.richardqin.org/RUCDSA/)
+## [rutils](https://git.richardqin.org/rutils/)
 
-## datalab2026
-
-An RUC ICS DataLab implementation and test workspace covering binary representation, bitwise operations, and IEEE-754 floating-point manipulation.
-
-- Technology: C, Python, Make
-- [repository](https://git.richardqin.org/datalab2026/)
+Small utilities for Linux users and system experiments.
