@@ -1,5 +1,5 @@
 baseURL = "http://localhost:1314/"
-title = "RICHARD QIN'S HOME PAGE"
+title = "Richard Qin's Home Page"
 locale = "en"
 defaultContentLanguage = "en"
 timeZone = "Asia/Shanghai"
