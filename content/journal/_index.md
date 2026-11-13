@@ -1,5 +1,5 @@
 ---
-title: "JOURNAL"
+title: "Journal"
 lang: en
 url: "/journal/"
 description: "Chronological writing by Richard Qin."

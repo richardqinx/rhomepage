@@ -1,5 +1,5 @@
 ---
-title: "PROJECTS"
+title: "Projects"
 lang: en
 url: "/projects/"
 description: "Software and documentation projects by Richard Qin."

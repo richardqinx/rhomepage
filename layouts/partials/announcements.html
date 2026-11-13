@@ -1,7 +1,7 @@
 {{- $pages := where site.RegularPages "Section" "announcements" -}}
 {{- with $pages.ByDate.Reverse }}
 <section class="announcements" aria-labelledby="announcements-title">
-  <h2 id="announcements-title">ANNOUNCEMENTS</h2>
+  <h2 id="announcements-title">Announcements</h2>
   <ol class="document-list announcement-list">
     {{- range first site.Params.announcementLimit . }}
       <li>

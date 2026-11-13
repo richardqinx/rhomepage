@@ -1,5 +1,5 @@
 ---
-title: "ANNOUNCEMENTS"
+title: "Announcements"
 lang: en
 url: "/announcements/"
 description: "Public notices about OpenPGP keys, contact details, and this site."

@@ -1,5 +1,5 @@
 ---
-title: "NOTES"
+title: "Notes"
 lang: en
 url: "/notes/"
 outputs: [HTML, RSS]

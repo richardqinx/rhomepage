@@ -1,5 +1,5 @@
 ---
-title: "LINKS"
+title: "Links"
 lang: en
 url: "/links/"
 description: "A small, annotated map of useful places on the web."
