@@ -479,26 +479,42 @@ img {
 
 .gnu-links {
   display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: 160px minmax(0, 1fr);
   gap: 1.5rem;
   margin-block: 1.5rem;
 }
 
-.gnu-links a {
+.gnu-links-images {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.gnu-links-images a {
   display: block;
 }
 
-.gnu-links img {
+.gnu-links-images img {
   width: auto;
   max-width: 100%;
   max-height: 200px;
   margin: 0;
 }
 
+.gnu-links-text p {
+  margin-top: 0;
+}
+
 @media (max-width: 520px) {
   .gnu-links {
+    grid-template-columns: 1fr;
     gap: 1rem;
+  }
+
+  .gnu-links-images {
+    flex-direction: row;
+    align-items: flex-start;
   }
 }
 

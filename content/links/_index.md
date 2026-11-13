@@ -6,22 +6,26 @@ description: "A small, annotated map of useful places on the web."
 license: CC-BY-SA-4.0
 ---
 
-## Free software
+## Free Software
 
-[Free Software Foundation](https://www.fsf.org/) promotes computer user freedom and supports the worldwide free software movement.
+[Free Software Foundation](https://www.fsf.org/) promotes computer user freedom and supports the worldwide free software movement. It defends users' rights, develops and promotes free software licenses, and advocates for software that users can run, study, modify, and share.
 
 <div class="gnu-links">
-  <a href="https://www.gnu.org/" title="The GNU Project"><img src="gnu-head-sm.png" alt="GNU" width="129" height="122"></a>
-  <a href="https://www.gnu.org/philosophy/" title="GNU philosophy"><img src="philosophical-gnu-sm.png" alt="Philosophical GNU" width="160" height="200"></a>
+  <div class="gnu-links-images">
+    <a href="https://www.gnu.org/" title="The GNU Project"><img src="gnu-head-sm.png" alt="GNU" width="129" height="122"></a>
+    <a href="https://www.gnu.org/philosophy/" title="GNU philosophy"><img src="philosophical-gnu-sm.png" alt="Philosophical GNU" width="160" height="200"></a>
+  </div>
+  <div class="gnu-links-text">
+    <p><a href="https://www.gnu.org/">GNU Project</a> develops the GNU operating system and publishes free software, documentation, and educational resources. Started in 1983, it aims to provide a complete operating system whose users are free to run, study, modify, and redistribute the software.</p>
+    <p><a href="https://www.gnu.org/philosophy/">GNU Philosophy</a> collects essays and resources about the social, ethical, and political ideas behind the GNU Project and the free software movement.</p>
+  </div>
 </div>
-
-[GNU Project](https://www.gnu.org/) develops the GNU operating system and publishes resources about free software.
 
 [Richard Stallman's personal site](https://stallman.org/) collects his writing, talks, and current notes.
 
 ## Friends
 
-[Yangming Xiong](https://escapist404.github.io/) is an undergraduate in Artificial Intelligence at the Gaoling School of Artificial Intelligence, Renmin University of China. His research interests include embodied world models, vision-language-action models, robot learning, and multimodal agents for long-horizon reasoning, planning, and interaction. He also works as a research intern at Tsinghua University's Institute for Interdisciplinary Information Sciences and an intern at Litchibot.
+[Yangming Xiong](https://escapist404.github.io/) is an undergraduate in Artificial Intelligence at Renmin University of China. His interests include embodied world models, vision-language-action models, robot learning, and multimodal agents. He also works as a research intern at Tsinghua University and Litchibot.
 
 ## Documentation
 
@@ -29,7 +33,7 @@ license: CC-BY-SA-4.0
 
 [MDN Web Docs](https://developer.mozilla.org/) is a practical reference for the open web platform. Its HTML and accessibility material is useful even for deliberately small sites.
 
-## Independent web
+## Independent Web
 
 [IndieWeb](https://indieweb.org/) collects patterns for publishing on a domain you control. The wiki is broad, so I use it as a map of ideas rather than a checklist.
 
