@@ -6,5 +6,3 @@ description: "Personal Emacs Configuration."
 repository: "https://git.richardqin.org/emacs.d/"
 weight: 40
 ---
-
-[Repository](https://git.richardqin.org/emacs.d/)

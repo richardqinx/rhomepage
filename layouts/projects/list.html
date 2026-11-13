@@ -2,6 +2,9 @@
   <article lang="{{ default "en" .Params.lang }}">
     <header class="document-header">
       <h1>{{ .Title }}</h1>
+      {{- with .Params.repository }}
+        <p class="project-repository"><a href="{{ . }}">Repository</a></p>
+      {{- end }}
       {{ partial "document-view.html" . }}
     </header>
     {{ .Content }}

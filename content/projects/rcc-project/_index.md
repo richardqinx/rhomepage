@@ -27,5 +27,3 @@ Projects for binary utilities, memory allocators, and other systems software wil
 Each subproject maintains its own build entry points, build dependencies, and runtime behavior.
 
 For specific build instructions, see the build files and documentation in the corresponding subproject directory.
-
-[Repository](https://git.richardqin.org/rcc-project/)

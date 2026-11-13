@@ -32,5 +32,3 @@ The source repository URL, per-file Git base URL, and public email are configure
 Site code and templates are licensed under `GPL-3.0-or-later`; see `COPYING`.
 
 Unless an individual document states otherwise, prose and other site content are licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
-
-[Repository](https://git.richardqin.org/rhomepage/)
