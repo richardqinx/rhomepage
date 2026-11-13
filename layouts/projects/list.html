@@ -5,5 +5,15 @@
       {{ partial "document-view.html" . }}
     </header>
     {{ .Content }}
+    {{- with .Sections.ByWeight }}
+      <section aria-labelledby="projects-list-title">
+        <h2 id="projects-list-title">Projects</h2>
+        <ul class="document-list">
+          {{- range . }}
+            <li><a href="{{ .RelPermalink }}" lang="{{ .Params.lang }}">{{ .LinkTitle }}</a>{{ with .Params.description }} — {{ . }}{{ end }}</li>
+          {{- end }}
+        </ul>
+      </section>
+    {{- end }}
   </article>
 {{ end }}
