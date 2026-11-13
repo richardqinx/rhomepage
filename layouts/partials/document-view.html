@@ -1,4 +1,4 @@
-{{- if .File -}}
+{{- if and .File .IsPage -}}
   {{- $gitBase := strings.TrimSuffix "/" site.Params.gitBase -}}
   {{- $gitURL := printf "%s/content/%s" $gitBase .File.Path -}}
   <p class="document-view"><a href="{{ $gitURL }}">source</a></p>

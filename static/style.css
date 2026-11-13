@@ -240,7 +240,7 @@ a:focus-visible {
 }
 
 .document-meta {
-  margin-bottom: 1.25rem;
+  margin-bottom: 0;
   color: var(--muted);
   font-size: 0.875rem;
 }
@@ -257,9 +257,13 @@ a:focus-visible {
 }
 
 .document-view {
-  margin-block: 1rem;
+  margin: 0.35rem 0 0;
   color: var(--muted);
   font-size: 0.875rem;
+}
+
+.document-meta + .document-view {
+  margin-top: 0;
 }
 
 .document-list {
