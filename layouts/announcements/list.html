@@ -5,6 +5,7 @@
       {{ partial "document-view.html" . }}
     </header>
     {{ .Content }}
+    <p><a href="{{ "/rss.xml" | relURL }}">journal rss</a></p>
     <ol class="document-list announcement-list">
       {{- range .RegularPages.ByDate.Reverse }}
         <li>

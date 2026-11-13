@@ -7,7 +7,7 @@
     </header>
     {{ .Content }}
     {{- if $isNotesRoot }}
-      <p><a href="{{ "notes/rss.xml" | relURL }}">Subscribe to notes updates</a></p>
+      <p><a href="{{ "notes/rss.xml" | relURL }}">notes rss</a></p>
       {{- with .RegularPages.ByTitle }}
         <section aria-labelledby="standalone-title">
           <h2 id="standalone-title">Standalone Notes</h2>

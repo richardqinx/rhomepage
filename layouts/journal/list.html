@@ -5,6 +5,9 @@
       {{ partial "document-view.html" . }}
     </header>
     {{ .Content }}
+    {{- if .Parent.IsHome }}
+      <p><a href="{{ "/rss.xml" | relURL }}">journal rss</a></p>
+    {{- end }}
     {{- $sections := sort .Sections "RelPermalink" "desc" -}}
     {{- with $sections }}
       <section aria-labelledby="journal-sections-title">

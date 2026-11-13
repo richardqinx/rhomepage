@@ -9,7 +9,9 @@
   <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} | {{ site.Title }}{{ end }}</title>
   <meta name="description" content="{{ $description }}">
   <link rel="canonical" href="{{ .Permalink }}">
-  <link rel="alternate" type="application/rss+xml" title="{{ site.Title }} Journal and Announcements" href="{{ "rss.xml" | absURL }}">
+  {{- if or (eq .Section "journal") (eq .Section "announcements") }}
+  <link rel="alternate" type="application/rss+xml" title="{{ site.Params.owner }} — Journal RSS" href="{{ "rss.xml" | absURL }}">
+  {{- end }}
   {{- if eq .Section "notes" }}
   <link rel="alternate" type="application/rss+xml" title="{{ site.Params.owner }} — Notes Updates" href="{{ "notes/rss.xml" | absURL }}">
   {{- end }}
