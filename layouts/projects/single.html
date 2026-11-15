@@ -1,0 +1,13 @@
+{{ define "main" }}
+  <article lang="{{ default "en" .Params.lang }}">
+    <header class="document-header">
+      <p class="project-parent"><a href="{{ .Parent.RelPermalink }}">{{ .Parent.Title }}</a></p>
+      <h1>{{ .Title }}</h1>
+      {{ partial "document-view.html" . }}
+    </header>
+    {{ .Content }}
+    <nav class="document-navigation" aria-label="Project">
+      <a href="{{ .Parent.RelPermalink }}">← {{ .Parent.Title }}</a>
+    </nav>
+  </article>
+{{ end }}

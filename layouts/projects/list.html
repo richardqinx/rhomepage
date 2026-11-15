@@ -7,6 +7,13 @@
       {{- end }}
       {{ partial "document-view.html" . }}
     </header>
+    {{- with .RegularPages.ByWeight }}
+      <ul class="document-list project-documents">
+        {{- range . }}
+          <li><a href="{{ .RelPermalink }}" lang="{{ .Params.lang }}">{{ .LinkTitle }}</a></li>
+        {{- end }}
+      </ul>
+    {{- end }}
     {{ .Content }}
     {{- with .Sections.ByWeight }}
       <section aria-labelledby="projects-list-title">
